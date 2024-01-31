@@ -10,8 +10,6 @@ import SwiftData
 
 struct JournalEntriesListView: View {
     
-    var journalEntries: [JournalEntry] = [JournalEntry(title: "Day One"), JournalEntry(title: "Day Two"), JournalEntry(title: "Day Three")]
-    
     var body: some View {
         
         ZStack{
@@ -26,11 +24,10 @@ struct JournalEntriesListView: View {
                 NavigationStack{
                     List(journalEntries) {
                         listedJournalEntry in
-                        NavigationLink(destination: Rectangle()){
-                            Text(listedJournalEntry.title)
+                        NavigationLink(destination: JournalEntryDetailView(detailJournalEntry: listedJournalEntry)){
+                            JournalEntryRowView(rowJournalEntry: listedJournalEntry)
                                 .navigationTitle("\(journalEntries.count) Journal Entries")
                         }
-                        
                     }
                 }
                 
