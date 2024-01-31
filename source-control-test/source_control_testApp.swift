@@ -25,7 +25,7 @@ struct source_control_testApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            JournalEntriesListView()
         }
         .modelContainer(sharedModelContainer)
     }

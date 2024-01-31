@@ -7,6 +7,12 @@
 
 import Foundation
 
-struct JournalEntry {
+class JournalEntry: Identifiable {
+    
     var title: String = ""
+    
+    init(title: String) {
+        self.title = title
+    }
+    
 }
