@@ -10,7 +10,7 @@ import SwiftData
 
 struct JournalEntriesListView: View {
     
-    let journalEntries: [JournalEntry] = [JournalEntry(title: "Day One"), JournalEntry(title: "Day Two"), JournalEntry(title: "Day Three")]
+    var journalEntries: [JournalEntry] = [JournalEntry(title: "Day One"), JournalEntry(title: "Day Two"), JournalEntry(title: "Day Three")]
     
     var body: some View {
         
@@ -23,12 +23,17 @@ struct JournalEntriesListView: View {
                 
                 Text("Dd's Journal App")
                     .font(.largeTitle)
-                
-                Spacer()
-                
-                List(journalEntries) {
-                    listedJournalEntry in Text(listedJournalEntry.title)
+                NavigationStack{
+                    List(journalEntries) {
+                        listedJournalEntry in
+                        NavigationLink(destination: Rectangle()){
+                            Text(listedJournalEntry.title)
+                                .navigationTitle("\(journalEntries.count) Journal Entries")
+                        }
+                        
+                    }
                 }
+                
                 
             }
         }
